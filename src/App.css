@@ -1,0 +1,231 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  color: black;
+}
+
+#root {
+  width: 100dvw;
+  height: 100dvh;
+  min-width: 100dvw;
+  position: relative;
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+
+#contentHolder {
+  min-height: 100%;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: minmax(50px, 200px) minmax(480px, 2fr) minmax(
+      320px,
+      1fr
+    );
+  grid-template-rows: 60px 80px 250px 1fr;
+  gap: 12px;
+}
+
+.leftBarHolder {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 1;
+  grid-row: 1/ 7;
+}
+
+.leftBar {
+  background-color: aliceblue;
+  flex-grow: 1;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.midFlexHolder {
+  display: flex;
+  flex-direction: row;
+
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: min-content;
+
+  grid-row: 1 / span 4;
+  grid-column: 2 / span 1;
+}
+
+.header {
+  height: 60px;
+  max-height: 60px;
+  min-width: 1fr;
+  background-color: aliceblue;
+  margin-top: 10px;
+  border-radius: 15px;
+  text-align: center;
+  align-content: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.boxHolder {
+  height: 80px;
+  max-height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 9px;
+}
+
+.lineChartHolder {
+  height: 250px;
+  min-height: 200px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  width: 60%;
+  display: inline-block;
+  align-content: center;
+}
+
+.leftBar > Button {
+  background-color: aliceblue;
+}
+
+.barChartHolder {
+  min-height: 250px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  width: 38%;
+  align-content: center;
+  display: inline-block;
+  height: min-content;
+}
+
+.pieChartHolder {
+  max-height: 250px;
+  height: max-content;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  display: inline-block;
+  width: 50%;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.trafficInfoHolder {
+  width: 48%;
+  max-height: 250px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+.trafficInfoHolder {
+  text-align: center;
+  position: relative;
+}
+
+.trafficInfoHolder > h3 {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.trafficLocationName {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.trafficInfoValues {
+  display: inline-block;
+  width: 18%;
+  text-align: start;
+  margin-top: 10px;
+}
+
+.pieChartHolder > canvas {
+  margin: 0 auto;
+}
+
+.rightFlexHolder {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-right: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-between;
+  gap: 9px;
+  height: min-content;
+  min-width: 310px;
+
+  grid-row: 1 / span 4;
+  grid-column: 3 / span 1;
+}
+
+.postHolder {
+  width: 100%;
+}
+
+@media screen and (max-width: 970px) {
+  .leftBar {
+    display: none;
+  }
+
+  .leftBarHolder {
+    background-color: aliceblue;
+    max-width: 30px;
+  }
+}
+
+@media screen and (max-width: 970px) and (min-width: 850px) {
+  #contentHolder {
+    grid-template-columns: 30px minmax(480px, 2fr) minmax(320px, 1fr);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #contentHolder {
+    grid-template-columns: 30px 1fr 1px;
+  }
+
+  .rightFlexHolder {
+    grid-row-start: 5;
+    grid-column-start: 2;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .lineChartHolder,
+  .barChartHolder,
+  .pieChartHolder,
+  .trafficInfoHolder {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  #contentHolder {
+    grid-template-columns: 5px 1fr 1px;
+  }
+}
+
+.letBarCompact {
+  display: inline-block;
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+.leftBarFloating {
+  z-index: 10;
+  height: 100%;
+  width: 40%;
+}
