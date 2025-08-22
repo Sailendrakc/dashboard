@@ -26,19 +26,25 @@
 }
 
 .leftBarHolder {
-  display: flex;
-  flex-direction: column;
   grid-column: 1 / span 1;
   grid-row: 1/ 7;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
 .leftBar {
   background-color: aliceblue;
   flex-grow: 1;
   border-radius: 15px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
   display: flex;
   flex-direction: column;
+  gap: 9px;
+  margin-top: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .midFlexHolder {
@@ -90,6 +96,17 @@
 
 .leftBar > Button {
   background-color: aliceblue;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.leftBar > Button:hover {
+  border-color: blue;
+}
+
+.logoIcon {
+  height: 60px;
+  margin-top: 10px;
 }
 
 .barChartHolder {
@@ -173,25 +190,31 @@
 }
 
 @media screen and (max-width: 970px) {
-  .leftBar {
-    display: none;
-  }
-
   .leftBarHolder {
-    background-color: aliceblue;
-    max-width: 30px;
+    grid-column: auto;
+    grid-row: auto;
+    position: fixed;
+    bottom: 100px;
+    width: 150px;
+    height: 80%;
+    z-index: 1;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    justify-content: flex-end;
   }
 }
 
 @media screen and (max-width: 970px) and (min-width: 850px) {
   #contentHolder {
-    grid-template-columns: 30px minmax(480px, 2fr) minmax(320px, 1fr);
+    grid-template-columns: 1px minmax(480px, 2fr) minmax(320px, 1fr);
   }
 }
 
 @media screen and (max-width: 850px) {
   #contentHolder {
-    grid-template-columns: 30px 1fr 1px;
+    grid-template-columns: 1px 1fr 1px;
   }
 
   .rightFlexHolder {
@@ -208,24 +231,21 @@
     width: 100%;
     min-width: 300px;
   }
-
-  #contentHolder {
-    grid-template-columns: 5px 1fr 1px;
-  }
 }
 
-.letBarCompact {
+.leftBarCompact {
   display: inline-block;
   position: fixed;
-  top: 50px;
+  bottom: 20px;
   left: 10px;
   width: 50px;
   height: 50px;
-  z-index: 10;
+}
+
+.leftBarCompact > button {
+  border-radius: 20px;
 }
 
 .leftBarFloating {
-  z-index: 10;
-  height: 100%;
-  width: 40%;
+  flex-grow: 0;
 }

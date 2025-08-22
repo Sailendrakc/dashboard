@@ -29,6 +29,7 @@ function App() {
   return (
     <div id="contentHolder">
       <div className="leftBarHolder">
+        <div className="logoIcon"></div>
         <LeftBar className="LeftBar"></LeftBar>
       </div>
 

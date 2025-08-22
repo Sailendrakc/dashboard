@@ -12,7 +12,7 @@ function LeftBar() {
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        if (entry.contentRect.width < 960) {
+        if (entry.contentRect.width < 970) {
           setType("Compact");
         } else {
           setType("Full");
@@ -53,7 +53,11 @@ function LeftBar() {
       return (
         <div className="leftBarCompact ">
           <button onClick={() => setType("Floating")}>
-            <i class="bsc-menu-hambuger"></i>
+            <img
+              src="/src/assets/menu-boxed.svg"
+              width="50px"
+              height="50px"
+            ></img>
           </button>
         </div>
       );
@@ -62,7 +66,7 @@ function LeftBar() {
     if (type === "Floating") {
       return (
         <div
-          className="leftBarFloating"
+          className="leftBar leftBarFloating"
           onBlur={(e) => {
             if (!e.currentTarget.contains(e.relatedTarget)) {
               setType("Compact");
