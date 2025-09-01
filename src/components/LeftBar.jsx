@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import boxedMenuIcon from "../assets/menu-boxed.svg";
 
 function LeftBar() {
   const [type, setType] = useState("Full");
+  const [activeButton, setActiveButton] = useState("Overview");
 
   let classNames = useRef({
     Full: "leftBarFull",
@@ -26,38 +29,74 @@ function LeftBar() {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const buttonsHtml = (
+    <>
+      <button
+        className={
+          activeButton === "Overview"
+            ? "leftBar-button-active"
+            : "leftBar-button"
+        }
+        onClick={() => {
+          navigate("/");
+          setActiveButton("Overview");
+        }}
+      >
+        <i></i>
+        Overview
+      </button>
+      <button
+        className={
+          activeButton === "Blogs" ? "leftBar-button-active" : "leftBar-button"
+        }
+        onClick={() => {
+          navigate("/Blogs");
+          setActiveButton("Blogs");
+        }}
+      >
+        <i></i>
+        Blogs
+      </button>
+      <button
+        className={
+          activeButton === "Shop" ? "leftBar-button-active" : "leftBar-button"
+        }
+        onClick={() => {
+          navigate("/Shop");
+          setActiveButton("Shop");
+        }}
+      >
+        <i></i>Shop
+      </button>
+      <button
+        className={
+          activeButton === "Settings"
+            ? "leftBar-button-active"
+            : "leftBar-button"
+        }
+        onClick={() => {
+          navigate("/Settings");
+          setActiveButton("Settings");
+        }}
+      >
+        <i></i>
+        Settings
+      </button>
+    </>
+  );
+
   function renderLeftBar() {
     if (type === "Full") {
-      return (
-        <div className="leftBar">
-          <button>
-            <i></i>
-            Overview
-          </button>
-          <button>
-            <i></i>
-            Blogs
-          </button>
-          <button>
-            <i></i>E Commerence
-          </button>
-          <button>
-            <i></i>
-            Settings
-          </button>
-        </div>
-      );
+      return <div className="leftBar">{buttonsHtml}</div>;
     }
 
     if (type === "Compact") {
       return (
         <div className="leftBarCompact ">
           <button onClick={() => setType("Floating")}>
-            <img
-              src="/src/assets/menu-boxed.svg"
-              width="50px"
-              height="50px"
-            ></img>
+            <img src={boxedMenuIcon} width="50px" height="50px"></img>
           </button>
         </div>
       );
@@ -73,21 +112,7 @@ function LeftBar() {
             }
           }}
         >
-          <button>
-            <i></i>
-            Overview
-          </button>
-          <button>
-            <i></i>
-            Blogs
-          </button>
-          <button>
-            <i></i>E Commerence
-          </button>
-          <button>
-            <i></i>
-            Settings
-          </button>
+          {buttonsHtml}
         </div>
       );
     }

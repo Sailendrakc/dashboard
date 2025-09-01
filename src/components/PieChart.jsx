@@ -38,7 +38,7 @@ function PieChart({ piedata }) {
         },
         title: {
           display: true,
-          text: "Age groups of users interacting with the platform",
+          text: "Age groups of users",
           align: "center",
         },
       },
