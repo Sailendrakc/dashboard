@@ -1,10 +1,11 @@
 import { ShopData } from "../assets/mockdata";
 import ProductCard from "../components/ProductCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import cart from "../assets/Cart.svg";
+import ShoppingContext from "../contexts/ShoppingContext";
 
 export default function Shop() {
-  const [cartNumber, setCartNumber] = useState(0);
+  let cartItems = useContext(ShoppingContext).cartItems;
 
   function renderProducts() {
     let productsArray = [];
@@ -16,7 +17,6 @@ export default function Shop() {
           imgUrl={ShopData[i].imageUrl}
           title={ShopData[i].name}
           price={ShopData[i].price}
-          addToCartFn={setCartNumber}
         />
       );
     }
@@ -35,7 +35,7 @@ export default function Shop() {
             width="35px"
             height="35px"
           ></object>
-          <h5 className="cartCount">{cartNumber}</h5>
+          <h5 className="cartCount">{cartItems.length}</h5>
         </div>
       </div>
 

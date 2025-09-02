@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ShoppingContext from "../contexts/ShoppingContext";
 
-export default function ProductCard({ imgUrl, title, price, addToCartFn }) {
+export default function ProductCard({ imgUrl, title, price }) {
   const [optionIndex, setOptionIndex] = useState(0);
+  let addItemsToCart = useContext(ShoppingContext).setCartItems;
 
   function renderOptions() {
     let optionsArray = [];
@@ -22,7 +24,12 @@ export default function ProductCard({ imgUrl, title, price, addToCartFn }) {
       <button
         key="add-to-cart"
         className="add-to-cart-button"
-        onClick={() => addToCartFn((prev) => prev + 1)}
+        onClick={() =>
+          addItemsToCart((prev) => [
+            ...prev,
+            { title, price, imgUrl: imgUrl[optionIndex].url },
+          ])
+        }
       >
         Add to Cart
       </button>

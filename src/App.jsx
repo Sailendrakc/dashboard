@@ -5,7 +5,7 @@ import RootLayout from "./Pages/RootLayout";
 import Overview from "./Pages/Overview";
 import Blogs from "./Pages/Blogs";
 import Shop from "./Pages/Shop";
-import Settings from "./Pages/Settings";
+import Settings from "./Pages/Checkout";
 
 import {
   createBrowserRouter,
@@ -15,6 +15,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   const router = createBrowserRouter(
@@ -23,7 +24,7 @@ function App() {
         <Route index element={<Overview data={data} />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="shop" element={<Shop />} />
-        <Route path="settings" element={<Settings />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
     )
   );

@@ -72,17 +72,17 @@ function LeftBar() {
       </button>
       <button
         className={
-          activeButton === "Settings"
+          activeButton === "Checkout"
             ? "leftBar-button-active"
             : "leftBar-button"
         }
         onClick={() => {
-          navigate("/Settings");
-          setActiveButton("Settings");
+          navigate("/Checkout");
+          setActiveButton("Checkout");
         }}
       >
         <i></i>
-        Settings
+        Checkout
       </button>
     </>
   );
